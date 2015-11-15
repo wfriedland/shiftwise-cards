@@ -26,6 +26,11 @@ namespace shiftwise_cards
             cardSuit = s;
             cardValue = v;
         }
+
+        public int sortOrder()
+        {
+            return ((int)cardSuit * 13) + (int)cardValue;
+        }
     }
 
     /*
@@ -52,12 +57,10 @@ namespace shiftwise_cards
          */
         public void sort()
         {
-            var sort =
+            deck = (
                 from d in deck
                 orderby d.cardSuit, d.cardValue
-                select d;
-
-            deck = sort.ToArray();
+                select d).ToArray();
         }
 
         /*
@@ -66,11 +69,11 @@ namespace shiftwise_cards
         public void shuffle()
         {
             var r = new Random(DateTime.Now.Second);
-            var shuffled = from d in deck
-                           let rand = r.Next()
-                           orderby rand
-                           select d;
-            deck = shuffled.ToArray();
+            deck= (
+                 from d in deck
+                 let rand = r.Next()
+                 orderby rand
+                 select d).ToArray();
         }
 
 
