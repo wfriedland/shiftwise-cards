@@ -88,7 +88,7 @@ namespace shiftwise_cards
             int sumOf51 = 0;
             for (int i = 0; i < 52; i++)
             {
-                checksum += ((int)deck[i].cardSuit * 13) + (int)deck[i].cardValue;
+                checksum += deck[i].sortOrder();
                 sumOf51 += i;
             }
             if (checksum != sumOf51)

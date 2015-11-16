@@ -27,6 +27,8 @@ namespace shiftsize_card_tests
             // Allocate a deck of cards
             cardDeck d = new cardDeck();
 
+            // Cards are in a sorted state after deck allocation
+
             // Shuffle
             d.shuffle();
 
@@ -46,11 +48,28 @@ namespace shiftsize_card_tests
         public void shuffleTest3()
         {
             // Allocate 5 deck of cards
+
+            // Delay 1 1/2 seconds between deck allocations to 
+            // ensure that each card has a differently seeded random
+            // number generator
+            //
             cardDeck d1 = new cardDeck();
+            Thread.Sleep(1500);
             cardDeck d2 = new cardDeck();
+            Thread.Sleep(1500);
             cardDeck d3 = new cardDeck();
+            Thread.Sleep(1500);
             cardDeck d4 = new cardDeck();
+            Thread.Sleep(1500);
             cardDeck d5 = new cardDeck();
+
+            // sort
+            d1.sort();
+            d2.sort();
+            d3.sort();
+            d4.sort();
+            d5.sort();
+
 
             // Shuffle
             d1.shuffle();

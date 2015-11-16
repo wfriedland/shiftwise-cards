@@ -24,7 +24,7 @@ namespace shiftwise_card_tests
             card c = new card();
             for (int i = 0; i < 51; i++)
             {
-                int idx = (i + r.Next()) % 52;
+                int idx = (r.Next()) % 52;
                 c = d.deck[idx];
                 d.deck[idx] = d.deck[i];
                 d.deck[i] = c;
@@ -115,7 +115,6 @@ namespace shiftwise_card_tests
                 c = d5.deck[idx];
                 d5.deck[idx] = d5.deck[i];
                 d5.deck[i] = c;
-
             }
 
             // sort 
