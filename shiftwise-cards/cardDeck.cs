@@ -42,6 +42,7 @@ namespace shiftwise_cards
         public cardDeck()
         {
             deck = new card[52];
+            var r = new Random(DateTime.Now.Second);
             int i = 0;
             for (suits s = suits.clubs; s <= suits.spades; s++)
             {
@@ -68,7 +69,6 @@ namespace shiftwise_cards
          */
         public void shuffle()
         {
-            var r = new Random(DateTime.Now.Second);
             deck= (
                  from d in deck
                  let rand = r.Next()
@@ -81,6 +81,8 @@ namespace shiftwise_cards
          * The validateDeck() method performs a test to see that deck of cards have
          * every card it should. It does this by ensuring the count of suite/value of each card
          * totals to the correct sum.
+         *
+         * This feature will be more meaningful once cards start leaving the deck. 
          */
         public bool validateDeck()
         {
